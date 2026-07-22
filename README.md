@@ -1,32 +1,42 @@
-# React + TypeScript + Vite
+# AI Systems Store — Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Site vitrine React + Vite + Tailwind.
 
-Currently, two official plugins are available:
+## Lancer en local
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Héberger gratuitement avec GitHub Pages (lien public)
+
+### 1. Créer le dépôt
+1. Allez sur https://github.com/new
+2. Nom : `ai-systems-store-landing`
+3. Public → **Create repository**
+
+### 2. Envoyer le code
+Dans un terminal, depuis ce dossier :
+
+```bash
+cd "c:\Users\Pc\Desktop\AI Systems"
+git remote add origin https://github.com/VOTRE-USERNAME/ai-systems-store-landing.git
+git branch -M main
+git push -u origin main
+```
+
+Remplacez `VOTRE-USERNAME` par votre pseudo GitHub.
+
+### 3. Activer Pages
+1. Repo → **Settings** → **Pages**
+2. **Source** : **GitHub Actions**
+3. Onglet **Actions** → attendez que le workflow `Deploy to GitHub Pages` soit vert
+
+### 4. Lien du site
+`https://VOTRE-USERNAME.github.io/ai-systems-store-landing/`
+
+---
+
+Le workflow est déjà dans `.github/workflows/deploy.yml`.
+Chaque `git push` sur `main` republie automatiquement le site.
