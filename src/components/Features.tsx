@@ -1,5 +1,6 @@
 import { FadeIn } from './FadeIn'
 import { Lock, Sparkles, LayoutGrid, Zap } from 'lucide-react'
+import { asset } from '../utils/asset'
 
 const features = [
   {
@@ -43,7 +44,7 @@ export function Features() {
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <FadeIn delay={0.08}>
             <img
-              src="/images/features-visual.png"
+              src={asset('images/features-visual.png')}
               alt="AI features visual"
               className="w-full rounded-[1.75rem] border border-[var(--border)] shadow-[var(--shadow)]"
             />

@@ -1,6 +1,7 @@
 import { ArrowRight } from 'lucide-react'
 import { FadeIn } from './FadeIn'
 import { BeforeAfterSlider } from './BeforeAfterSlider'
+import { asset } from '../utils/asset'
 
 type ToolCard = {
   title: string
@@ -11,7 +12,7 @@ type ToolCard = {
 const tools: ToolCard[] = [
   {
     title: 'AI Copy Generator',
-    image: '/images/tool-copy.png',
+    image: 'images/tool-copy.png',
   },
   {
     title: 'AI Image Generator',
@@ -19,19 +20,19 @@ const tools: ToolCard[] = [
   },
   {
     title: 'AI Offer Builder',
-    image: '/images/tool-offer.png',
+    image: 'images/tool-offer.png',
   },
   {
     title: 'AI Presentation Builder',
-    image: '/images/tool-presentation.png',
+    image: 'images/tool-presentation.png',
   },
   {
     title: 'AI Video Generator',
-    image: '/images/tool-video.png',
+    image: 'images/tool-video.png',
   },
   {
     title: 'Website Analyzer',
-    image: '/images/tool-analyzer.png',
+    image: 'images/tool-analyzer.png',
   },
 ]
 
@@ -62,14 +63,14 @@ export function ToolsGallery() {
               >
                 {tool.interactive === 'before-after' ? (
                   <BeforeAfterSlider
-                    beforeSrc="/images/ai-image-1.webp"
-                    afterSrc="/images/ai-image-2.webp"
+                    beforeSrc={asset('images/ai-image-1.webp')}
+                    afterSrc={asset('images/ai-image-2.webp')}
                     alt="AI Image Generator"
                   />
                 ) : (
                   <div className="aspect-[16/11] overflow-hidden bg-brand-50">
                     <img
-                      src={tool.image}
+                      src={asset(tool.image!)}
                       alt={tool.title}
                       className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
                     />

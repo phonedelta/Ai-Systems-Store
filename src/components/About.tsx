@@ -1,5 +1,6 @@
 import { FadeIn } from './FadeIn'
 import { Compass, Lightbulb, Target, TrendingUp } from 'lucide-react'
+import { asset } from '../utils/asset'
 
 const values = [
   {
@@ -30,7 +31,7 @@ export function About() {
       <div className="container grid items-center gap-12 lg:grid-cols-2">
         <FadeIn delay={0.08} className="order-2 lg:order-1">
           <img
-            src="/images/about-visual.png"
+            src={asset('images/about-visual.png')}
             alt="AI Systems Store mission visual"
             className="w-full rounded-[1.75rem] border border-[var(--border)] shadow-[var(--shadow)]"
           />

@@ -1,5 +1,6 @@
 import { ArrowRight } from 'lucide-react'
 import { FadeIn } from './FadeIn'
+import { asset } from '../utils/asset'
 
 export function CTA() {
   return (
@@ -8,7 +9,7 @@ export function CTA() {
         <FadeIn>
           <div className="relative overflow-hidden rounded-[2rem] px-6 py-14 text-center text-white sm:px-12 sm:py-16">
             <img
-              src="/images/cta-banner-bg.png"
+              src={asset('images/cta-banner-bg.png')}
               alt=""
               className="absolute inset-0 h-full w-full object-cover"
             />

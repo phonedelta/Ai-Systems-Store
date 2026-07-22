@@ -1,5 +1,6 @@
 import { Check, ArrowRight } from 'lucide-react'
 import { FadeIn } from './FadeIn'
+import { asset } from '../utils/asset'
 
 const points = [
   '100+ specialized AI tools ready to use',
@@ -40,7 +41,7 @@ export function Tools() {
 
         <FadeIn delay={0.12}>
           <img
-            src="/images/tools-showcase.png"
+            src={asset('images/tools-showcase.png')}
             alt="AI tools category showcase"
             className="w-full rounded-[1.75rem] border border-[var(--border)] shadow-[var(--shadow)]"
           />

@@ -1,3 +1,5 @@
+import { asset } from '../utils/asset'
+
 type LogoProps = {
   className?: string
 }
@@ -6,7 +8,7 @@ type LogoProps = {
 export function Logo({ className = 'h-9' }: LogoProps) {
   return (
     <img
-      src="/logos/logo-nav.png"
+      src={asset('logos/logo-nav.png')}
       alt="AI Systems Store"
       className={`w-auto object-contain object-left ${className}`}
       style={{ background: 'transparent' }}

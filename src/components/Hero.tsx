@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { asset } from '../utils/asset'
 
 export function Hero() {
   return (
@@ -80,12 +81,12 @@ export function Hero() {
         >
           <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-brand-400/30 via-transparent to-brand-700/20 blur-2xl" />
           <img
-            src="/images/hero-illustration.png"
+            src={asset('images/hero-illustration.png')}
             alt="AI Systems Store workspace illustration"
             className="relative w-full rounded-[1.75rem] border border-[var(--border)] shadow-[var(--shadow)]"
           />
           <img
-            src="/images/dashboard-mockup.png"
+            src={asset('images/dashboard-mockup.png')}
             alt="AI tools dashboard preview"
             className="absolute -bottom-6 -left-4 w-[58%] rounded-2xl border border-white/70 shadow-xl sm:-bottom-8 sm:-left-8"
           />
