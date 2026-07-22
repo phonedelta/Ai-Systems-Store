@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  // Relative base so GitHub Pages works for project sites
-  base: './',
+  // Required for GitHub Pages project site: /Ai-Systems-Store/
+  base: '/Ai-Systems-Store/',
   plugins: [react(), tailwindcss()],
 })
