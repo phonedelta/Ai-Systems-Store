@@ -1,4 +1,4 @@
-# Logs
+﻿# Logs
 logs
 *.log
 npm-debug.log*
@@ -12,7 +12,7 @@ dist
 dist-ssr
 *.local
 
-# Editor directories and files
+# Editor
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -23,7 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 
-# Nested junk
-Systems
+# Junk / accidental copies
 landing
-scripts/*.pyc
+Systems
+**/images - Copie/**
+* - Copie/
