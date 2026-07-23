@@ -51,13 +51,13 @@ export function ToolsGallery() {
           </h2>
         </FadeIn>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
           {tools.map((tool, i) => (
             <FadeIn key={tool.title} delay={i * 0.05}>
               <article
                 className={`group overflow-hidden rounded-2xl border shadow-[var(--shadow)] transition hover:-translate-y-0.5 ${
                   tool.interactive === 'before-after'
-                    ? 'border-slate-800 bg-[#0b0b0f]'
+                    ? 'border-slate-800 bg-[#0b0b0f] ring-1 ring-brand-500/20'
                     : 'border-[var(--border)] bg-[var(--bg-elevated)] hover:border-brand-300'
                 }`}
               >
@@ -68,23 +68,24 @@ export function ToolsGallery() {
                     alt="AI Image Generator"
                   />
                 ) : (
-                  <div className="aspect-[16/11] overflow-hidden bg-brand-50">
+                  <div className="aspect-[16/11] overflow-hidden bg-gradient-to-br from-brand-50 to-white">
                     <img
                       src={asset(tool.image!)}
                       alt={tool.title}
-                      className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                      className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+                      loading="lazy"
                     />
                   </div>
                 )}
                 <div
-                  className={`px-4 py-3.5 ${
+                  className={`px-3 py-3 sm:px-4 sm:py-3.5 ${
                     tool.interactive === 'before-after'
                       ? 'border-t border-white/10 bg-black'
                       : 'border-t border-[var(--border)] bg-[var(--bg-elevated)]'
                   }`}
                 >
                   <h3
-                    className={`font-display text-sm font-bold tracking-[0.12em] uppercase sm:text-[0.95rem] ${
+                    className={`font-display text-xs font-bold tracking-[0.1em] uppercase sm:text-sm sm:tracking-[0.12em] ${
                       tool.interactive === 'before-after' ? 'text-white' : 'text-[var(--text)]'
                     }`}
                   >

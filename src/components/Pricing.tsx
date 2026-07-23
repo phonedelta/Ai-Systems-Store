@@ -96,9 +96,9 @@ export function Pricing() {
             return (
               <FadeIn key={plan.name} delay={i * 0.08}>
                 <article
-                  className={`relative flex h-full flex-col rounded-[1.5rem] border bg-[var(--bg-elevated)] p-7 ${
+                  className={`relative flex h-full flex-col rounded-[1.5rem] border bg-[var(--bg-elevated)] p-5 sm:p-7 ${
                     plan.popular
-                      ? 'border-brand-500 shadow-[0_24px_60px_-28px_rgba(124,58,237,0.55)] lg:-translate-y-2'
+                      ? 'mt-3 border-brand-500 shadow-[0_24px_60px_-28px_rgba(124,58,237,0.55)] lg:mt-0 lg:-translate-y-2'
                       : 'border-[var(--border)]'
                   }`}
                 >

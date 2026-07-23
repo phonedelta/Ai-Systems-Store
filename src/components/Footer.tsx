@@ -65,7 +65,7 @@ export function Footer() {
   return (
     <footer className="border-t border-[var(--border)] bg-[var(--bg-elevated)] pt-14 pb-8">
       <div className="container">
-        <div className="grid gap-10 lg:grid-cols-[1.2fr_1.8fr_1fr]">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.2fr_1.8fr_1fr]">
           <div>
             <Logo className="h-9" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-[var(--text-muted)]">
@@ -140,9 +140,11 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-[var(--border)] pt-6 text-sm text-[var(--text-muted)] sm:flex-row">
-          <p>© {new Date().getFullYear()} AI Systems Store. All rights reserved.</p>
-          <p className="text-right">
+        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-[var(--border)] pt-6 text-center text-sm text-[var(--text-muted)] sm:flex-row sm:text-left">
+          <p className="order-2 sm:order-1">
+            © {new Date().getFullYear()} AI Systems Store. All rights reserved.
+          </p>
+          <p className="order-1 text-center sm:order-2 sm:text-right">
             Design and development by{' '}
             <a
               href="https://thinkgroup.ma/"

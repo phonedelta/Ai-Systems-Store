@@ -1,6 +1,7 @@
 import { FadeIn } from './FadeIn'
 import { Compass, Lightbulb, Target, TrendingUp } from 'lucide-react'
 import { asset } from '../utils/asset'
+import { ImageFrame } from './ImageFrame'
 
 const values = [
   {
@@ -28,29 +29,30 @@ const values = [
 export function About() {
   return (
     <section id="about" className="section">
-      <div className="container grid items-center gap-12 lg:grid-cols-2">
+      <div className="container grid items-center gap-10 sm:gap-12 lg:grid-cols-2">
         <FadeIn delay={0.08} className="order-2 lg:order-1">
-          <img
+          <ImageFrame
             src={asset('images/about-visual.png')}
             alt="AI Systems Store mission visual"
-            className="w-full rounded-[1.75rem] border border-[var(--border)] shadow-[var(--shadow)]"
+            variant="soft"
+            imgClassName="media-shine aspect-[4/3] object-contain bg-white"
           />
         </FadeIn>
 
         <div className="order-1 lg:order-2">
           <FadeIn>
             <p className="mb-3 text-sm font-semibold text-brand-600">About us</p>
-            <h2 className="font-display text-3xl font-bold tracking-tight text-[var(--text)] sm:text-4xl">
+            <h2 className="font-display text-2xl font-bold tracking-tight text-[var(--text)] sm:text-3xl md:text-4xl">
               Making AI accessible, practical, and profitable
             </h2>
-            <p className="mt-4 text-[var(--text-muted)]">
+            <p className="mt-4 text-sm text-[var(--text-muted)] sm:text-base">
               AI Systems Store empowers entrepreneurs, creators, and businesses with simple,
               effective, and smart AI tools. Our mission is to eliminate complexity and make
               automation accessible to everyone.
             </p>
           </FadeIn>
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          <div className="mt-8 grid gap-3 sm:grid-cols-2 sm:gap-4">
             {values.map((value, i) => (
               <FadeIn key={value.title} delay={0.08 + i * 0.05}>
                 <div className="rounded-2xl border border-[var(--border)] bg-[var(--bg-elevated)] p-4">

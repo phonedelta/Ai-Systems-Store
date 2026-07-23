@@ -79,11 +79,11 @@ export function Navbar() {
       }`}
     >
       <div className="container flex h-[4.25rem] items-center justify-between gap-4">
-        <a href="#home" className="flex shrink-0 items-center">
-          <Logo className="h-8 md:h-9" />
+        <a href="#home" className="flex min-w-0 shrink-0 items-center">
+          <Logo className="h-7 sm:h-8 md:h-9" />
         </a>
 
-        <nav className="hidden items-center gap-7 xl:gap-8 lg:flex">
+        <nav className="hidden items-center gap-5 xl:gap-8 lg:flex">
           {links.map((link) => (
             <a key={link.href} href={link.href} className={linkClass(link.href)}>
               {link.label}

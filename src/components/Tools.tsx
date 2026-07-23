@@ -1,6 +1,7 @@
 import { Check, ArrowRight } from 'lucide-react'
 import { FadeIn } from './FadeIn'
 import { asset } from '../utils/asset'
+import { ImageFrame } from './ImageFrame'
 
 const points = [
   '100+ specialized AI tools ready to use',
@@ -12,14 +13,13 @@ const points = [
 export function Tools() {
   return (
     <section id="tools" className="section bg-[var(--bg-soft)]">
-      <div className="container grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      <div className="container grid items-center gap-10 sm:gap-12 lg:grid-cols-2 lg:gap-16">
         <FadeIn>
           <p className="mb-3 text-sm font-semibold text-brand-600">AI Tools</p>
-          <h2 className="font-display text-3xl font-bold tracking-tight text-[var(--text)] sm:text-4xl">
-            Built for <span className="text-brand-600">real work</span>, not just
-            experiments
+          <h2 className="font-display text-2xl font-bold tracking-tight text-[var(--text)] sm:text-3xl md:text-4xl">
+            Built for <span className="text-brand-600">real work</span>, not just experiments
           </h2>
-          <p className="mt-4 text-[var(--text-muted)]">
+          <p className="mt-4 text-sm text-[var(--text-muted)] sm:text-base">
             Optimize operations, automate workflows, and enhance performance with plug-and-play AI
             systems designed for entrepreneurs and teams.
           </p>
@@ -40,10 +40,11 @@ export function Tools() {
         </FadeIn>
 
         <FadeIn delay={0.12}>
-          <img
+          <ImageFrame
             src={asset('images/tools-showcase.png')}
             alt="AI tools category showcase"
-            className="w-full rounded-[1.75rem] border border-[var(--border)] shadow-[var(--shadow)]"
+            variant="soft"
+            imgClassName="media-shine aspect-[4/3] object-contain bg-white p-2 sm:p-3"
           />
         </FadeIn>
       </div>

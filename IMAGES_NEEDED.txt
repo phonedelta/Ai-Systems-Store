@@ -1,55 +1,114 @@
-hero-illustration.png
-Résolution : 1600 x 900 px
-Contenu : Illustration SaaS moderne — personne travaillant sur un laptop, cartes UI flottantes (outils AI), fond lavande clair, accents violet #7C3AED, style premium sans texte marketing.
 
-dashboard-mockup.png
-Résolution : 1200 x 900 px
-Contenu : Mockup dashboard AI Systems Store — sidebar, barre de recherche, grille de cartes outils (AI Copy Generator, AI Image Assistant, AI Offer Builder, AI Presentation Builder), coins arrondis, ombres douces.
+================================================================================
+2. HERO (section d’accueil)
+================================================================================
 
-features-visual.png
-Résolution : 1400 x 800 px
-Contenu : Illustration abstraite avec cartes flottantes et icônes (vitesse, sécurité, workspace, AI), palette violet et lavande, fond clair, sans texte.
+--------------------------------------------------------------------------------
+images/hero-illustration.png
+Section     : Hero — grande image à droite
+Résolution  : 1600 x 900 px (ratio 16:9)
+Format      : PNG ou WebP
+Description détaillée :
+  Illustration moderne SaaS assortie à la page login (ton violet).
+  Montre une personne / professionnelle travaillant sur un laptop,
+  entourée de cartes UI flottantes évoquant des outils AI
+  (génération de texte, images, dashboard).
+  Fond lavande clair / blanc, formes géométriques douces, ombres légères.
+  Style premium, aéré, sans gros blocs de texte marketing.
+  Doit donner une impression “workspace AI tout-en-un”.
 
-tools-showcase.png
-Résolution : 1200 x 900 px
-Contenu : Panneau UI outils — catégories (Marketing, Creative, Operations) et mini-grille de cartes (Blog Post Generator, Email Writer, Product Description, Ad Copy), style dashboard violet/blanc.
+--------------------------------------------------------------------------------
+images/dashboard-mockup.png
+Section     : Hero — petit mockup superposé
+Résolution  : 1200 x 900 px (ratio 4:3)
+Format      : PNG ou WebP
+Description détaillée :
+  Capture / mockup réaliste du dashboard produit AI Systems Store.
+  Contient : barre latérale, barre de recherche, grille de cartes outils
+  (AI Copy Generator, AI Image Assistant, AI Offer Builder,
+  AI Presentation Builder…).
+  Interface claire, coins arrondis, accents violet électrique,
+  ombres douces. Aspect “screenshot produit” crédible.
 
-about-visual.png
-Résolution : 1400 x 800 px
-Contenu : Illustration mission AI — nœuds géométriques violets, formes fluides, orbes douces, thème automatisation et croissance business, fond lavande/blanc, sans texte.
+================================================================================
+3. FEATURES
+================================================================================
 
-cta-banner-bg.png
-Résolution : 1920 x 800 px
-Contenu : Fond abstrait dégradé violet (#7C3AED vers violet profond), sparkles et formes géométriques très subtiles, sans texte.
+--------------------------------------------------------------------------------
+images/features-visual.png
+Section     : Features — visuel à gauche
+Résolution  : 1400 x 800 px (ratio 16:9)
+Format      : PNG 
+Description détaillée :
+  Illustration abstraite / composition de cartes flottantes.
+  Symbolise les bénéfices : vitesse, sécurité, organisation workspace,
+  magie AI (icônes ou formes géométriques violet / lavande).
+  Fond clair, beaucoup d’espace, style fluide moderne.
+  Peu ou pas de texte — image décorative de section.
 
-logo-nav.png
-Résolution : 440 x 116 px
-Contenu : Logo AI Systems Store — icône géométrique Ai (violet/lavande/indigo) + texte “AI SYSTEMS” et “store”, fond transparent.
+================================================================================
+4. TOOLS (section “Built for real work”)
+================================================================================
 
-tool-copy.png
-Résolution : 1280 x 720 px
-Contenu : Mockup dashboard sombre avec graphiques analytics, accents violet/bleu, pour carte AI Copy Generator.
+--------------------------------------------------------------------------------
+images/tools-showcase.png
+Section     : Tools — panneau à droite
+Résolution  : 1200 x 900 px (ratio 4:3)
+Format      : PNG 
+Description détaillée :
+  Panneau UI présentant le catalogue d’outils.
+  Liste de catégories (Marketing, Creative, Operations…) et mini-grille
+  de cartes outils (Blog Post Generator, Email Writer,
+  Product Description, Ad Copy…).
+  Design dashboard blanc / violet, propre et moderne.
 
-ai-image-1.webp
-Résolution : selon asset source
-Contenu : Image “avant” pour le slider AI Image Generator (depuis assets/ai image 1.webp).
+================================================================================
+5. GALERIE DES OUTILS AI (cartes 3x2)
+================================================================================
 
-ai-image-2.webp
-Résolution : selon asset source
-Contenu : Image “après” pour le slider AI Image Generator (depuis assets/ai image 2.webp).
+--------------------------------------------------------------------------------
+images/tool-copy.png
+Section     : Carte “AI Copy Generator”
+Résolution  : 1280 x 720 px (ratio 16:9)
+Format      : PNG 
+Description détaillée :
+  Visuel sombre / tech d’un dashboard analytics avec graphiques,
+  courbes et accents néon violet/bleu.
+  Évoque la génération de contenu et l’intelligence textuelle.
+  Pas de titre écrit dans l’image (le titre est en HTML sous la carte).
 
-tool-offer.png
-Résolution : 1280 x 720 px
-Contenu : Homme en costume avec hologramme conique bleu de données, fond tech sombre, pour AI Offer Builder.
+--------------------------------------------------------------------------------
+images/tool-video.png
+Section     : Carte “AI Video Generator”
+Résolution  : 1280 x 720 px (ratio 16:9)
+Format      : PNG 
+Description détaillée :
+  Mains entourées d’icônes e-commerce holographiques
+  (panier, livraison, pourcentage…).
+  Fond sombre violet néon, évoque la création vidéo / contenu commerce.
 
-tool-presentation.png
-Résolution : 1280 x 720 px
-Contenu : Main avec fenêtres holographiques flottantes et icône enveloppe, ambiance néon violet, pour AI Presentation Builder.
+--------------------------------------------------------------------------------
+images/tool-analyzer.png
+Section     : Carte “Website Analyzer”
+Résolution  : 1280 x 720 px (ratio 16:9)
+Format      : PNG ou WebP
+Description détaillée :
+  Ordinateur portable affichant un dashboard d’analytics web
+  (graphiques, métriques, glow “AI”).
+  Ambiance bureau tech sombre / violet.
+  Évoque l’analyse et l’optimisation de sites.
 
-tool-video.png
-Résolution : 1280 x 720 px
-Contenu : Mains avec icônes e-commerce holographiques (panier, livraison, %), fond néon violet, pour AI Video Generator.
+================================================================================
+6. ABOUT
+================================================================================
 
-tool-analyzer.png
-Résolution : 1280 x 720 px
-Contenu : Écran laptop analytics site web avec graphiques et glow AI, pour Website Analyzer.
+--------------------------------------------------------------------------------
+images/about-visual.png
+Section     : About — visuel mission
+Résolution  : 1400 x 800 px (ratio 16:9)
+Format      : PNG ou WebP
+Description détaillée :
+  Illustration abstraite de “mission AI / réseau / croissance”.
+  Nœuds géométriques violets interconnectés, formes fluides, orbes douces.
+  Fond lavande / blanc. Thème : automatisation accessible et impact business.
+  Sans texte.
