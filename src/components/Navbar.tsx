@@ -99,7 +99,7 @@ export function Navbar() {
             Log in
           </a>
           <a href="#pricing" className="btn-primary hidden px-4 py-2.5 text-sm sm:inline-flex">
-            Get Started
+            Join the Platform
           </a>
           <button
             type="button"
@@ -133,7 +133,7 @@ export function Navbar() {
               Log in
             </a>
             <a href="#pricing" onClick={() => setOpen(false)} className="btn-primary mt-1 text-sm">
-              Get Started
+              Join the Platform
             </a>
           </div>
         </div>

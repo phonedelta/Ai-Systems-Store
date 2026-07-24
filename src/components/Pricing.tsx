@@ -8,14 +8,14 @@ const plans = [
     monthly: 0,
     yearly: 0,
     desc: 'Perfect for exploring AI tools and understanding how automation can support your business.',
-    features: ['AI Copy Generator', 'AI Systems Assistant', 'AI Offer Builder', 'Community access'],
+    features: ['AI Copy Generator', 'AI Systems Assistant', 'AI Offer Builder'],
     popular: false,
   },
   {
-    name: 'Pro',
+    name: 'Professional',
     monthly: 19,
     yearly: 179,
-    desc: 'Designed for entrepreneurs ready to automate workflows and scale faster with AI.',
+    desc: 'Designed for entrepreneurs and teams ready to automate workflows and scale faster with AI.',
     features: [
       'All AI tools included',
       'AI Image Generator',
@@ -25,21 +25,6 @@ const plans = [
       'Landing Page Generator',
     ],
     popular: true,
-  },
-  {
-    name: 'Team',
-    monthly: 49,
-    yearly: 470,
-    desc: 'For growing teams that need collaboration, priority support, and advanced systems.',
-    features: [
-      'Everything in Pro',
-      'Team workspaces',
-      'Priority support',
-      'Custom workflows',
-      'Training & updates',
-      'Shared templates',
-    ],
-    popular: false,
   },
 ]
 
@@ -52,12 +37,13 @@ export function Pricing() {
     <section id="pricing" className="section bg-[var(--bg-soft)]">
       <div className="container">
         <FadeIn className="mx-auto mb-8 max-w-2xl text-center">
-          <p className="mb-3 text-sm font-semibold text-brand-600">Pricing</p>
+          <p className="mb-3 text-sm font-semibold text-brand-600">Our Pricing</p>
           <h2 className="font-display text-3xl font-bold tracking-tight text-[var(--text)] sm:text-4xl">
             Simple pricing for <span className="text-brand-600">everyone</span>
           </h2>
           <p className="mt-4 text-[var(--text-muted)]">
-            Experience powerful AI systems without overpaying for features you don’t use.
+            Get powerful AI tools and business systems without overpaying for features you don’t
+            use.
           </p>
 
           <div className="mt-7 inline-flex items-center gap-3 rounded-full border border-[var(--border)] bg-[var(--bg-elevated)] p-1.5">
@@ -83,16 +69,15 @@ export function Pricing() {
             >
               Yearly
               <span className="rounded-full bg-white/20 px-2 py-0.5 text-[10px] font-bold tracking-wide uppercase">
-                Save 20%
+                20% Off
               </span>
             </button>
           </div>
         </FadeIn>
 
-        <div className="grid gap-6 lg:grid-cols-3">
+        <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
           {plans.map((plan, i) => {
             const price = yearly ? plan.yearly : plan.monthly
-            const period = yearly ? '/year' : '/month'
             return (
               <FadeIn key={plan.name} delay={i * 0.08}>
                 <article
@@ -111,9 +96,11 @@ export function Pricing() {
                   <p className="mt-2 text-sm text-[var(--text-muted)]">{plan.desc}</p>
                   <div className="mt-6 flex items-end gap-1">
                     <span className="font-display text-4xl font-extrabold text-[var(--text)]">
-                      ${price}
+                      {plan.name === 'Starter' ? 'Free' : `$${price}`}
                     </span>
-                    <span className="pb-1 text-sm text-[var(--text-muted)]">{period}</span>
+                    <span className="pb-1 text-sm text-[var(--text-muted)]">
+                      {plan.name === 'Starter' ? '/Month' : yearly ? '/Year' : '/Month'}
+                    </span>
                   </div>
                   <ul className="mt-6 flex-1 space-y-3">
                     {plan.features.map((feature) => (
@@ -131,7 +118,7 @@ export function Pricing() {
                         : 'border border-[var(--border)] text-[var(--text)] hover:border-brand-300 hover:bg-[var(--bg-soft)]'
                     }`}
                   >
-                    Choisir ce plan
+                    Choose this plan
                   </a>
                 </article>
               </FadeIn>

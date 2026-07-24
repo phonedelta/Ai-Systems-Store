@@ -13,11 +13,7 @@ const faqs = [
   },
   {
     q: 'Are your AI tools ready to use or fully custom?',
-    a: 'Both. We offer ready-built AI systems for fast deployment, as well as customized solutions tailored to your specific workflows and business objectives.',
-  },
-  {
-    q: 'Can I cancel anytime?',
-    a: 'Yes. You can cancel your subscription at any time. The free plan stays available forever with no credit card required.',
+    a: 'Both. We offer ready-built AI systems for fast deployment, as well as fully customized solutions tailored to your specific workflows and business objectives.',
   },
 ]
 
@@ -28,9 +24,9 @@ export function FAQ() {
     <section id="faq" className="section bg-[var(--bg-soft)]">
       <div className="container max-w-3xl">
         <FadeIn className="mb-8 text-center">
-          <p className="mb-3 text-sm font-semibold text-brand-600">FAQ</p>
+          <p className="mb-3 text-sm font-semibold text-brand-600">Our FAQs</p>
           <h2 className="font-display text-3xl font-bold tracking-tight text-[var(--text)] sm:text-4xl">
-            Frequently asked questions
+            Frequently Asked Questions
           </h2>
         </FadeIn>
 

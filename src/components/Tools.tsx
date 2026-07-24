@@ -4,10 +4,11 @@ import { asset } from '../utils/asset'
 import { ImageFrame } from './ImageFrame'
 
 const points = [
-  '100+ specialized AI tools ready to use',
-  'Complete business systems & frameworks',
-  'Templates, prompts & workflows included',
-  'Regularly updated with new capabilities',
+  'Save Time — no coding, no technical complexity',
+  'Plug-and-Play Systems — everything is structured and pre-optimized',
+  'AI-Enhanced Resources — built around efficiency and performance',
+  'Weekly Updates — stay ahead of market changes every month',
+  'Affordable Access — high-value tools without heavy investments',
 ]
 
 export function Tools() {
@@ -15,13 +16,14 @@ export function Tools() {
     <section id="tools" className="section bg-[var(--bg-soft)]">
       <div className="container grid items-center gap-10 sm:gap-12 lg:grid-cols-2 lg:gap-16">
         <FadeIn>
-          <p className="mb-3 text-sm font-semibold text-brand-600">AI Tools</p>
+          <p className="mb-3 text-sm font-semibold text-brand-600">Why Choose AI Systems Store?</p>
           <h2 className="font-display text-2xl font-bold tracking-tight text-[var(--text)] sm:text-3xl md:text-4xl">
-            Built for <span className="text-brand-600">real work</span>, not just experiments
+            A platform built for{' '}
+            <span className="text-brand-600">speed, simplicity, and real results</span>
           </h2>
           <p className="mt-4 text-sm text-[var(--text-muted)] sm:text-base">
-            Optimize operations, automate workflows, and enhance performance with plug-and-play AI
-            systems designed for entrepreneurs and teams.
+            We provide ready-to-use tools, structured systems, and automation frameworks designed to
+            solve real business problems — not just generate ideas.
           </p>
           <ul className="mt-7 space-y-3">
             {points.map((point) => (
@@ -33,8 +35,8 @@ export function Tools() {
               </li>
             ))}
           </ul>
-          <a href="#pricing" className="btn-primary mt-8">
-            Explore All Tools
+          <a href="#ai-systems" className="btn-primary mt-8">
+            View More
             <ArrowRight size={18} />
           </a>
         </FadeIn>

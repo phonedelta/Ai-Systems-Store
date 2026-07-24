@@ -18,7 +18,7 @@ export function Hero() {
             className="mb-5 inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white/70 px-3.5 py-1.5 text-xs font-semibold text-brand-700 shadow-sm"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-brand-500" />
-            Your AI workspace, all in one place
+            Powerful AI tools. Real business results.
           </motion.div>
 
           <motion.h1
@@ -27,11 +27,12 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.08 }}
             className="font-display text-[2rem] font-extrabold leading-[1.1] tracking-tight text-[var(--text)] sm:text-4xl md:text-5xl lg:text-[3.25rem]"
           >
-            Run powerful AI tools to{' '}
+            Build, Automate, and Scale Your
+            <br className="hidden sm:block" />
+            Business with{' '}
             <span className="bg-gradient-to-r from-brand-500 to-brand-700 bg-clip-text text-transparent">
-              grow
-            </span>{' '}
-            your business
+              AI
+            </span>
           </motion.h1>
 
           <motion.p
@@ -41,7 +42,7 @@ export function Hero() {
             className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-[var(--text-muted)] sm:text-lg lg:mx-0"
           >
             Access ready-to-use AI tools, complete business systems, and high-value resources
-            designed to accelerate your growth — without complexity.
+            designed to accelerate your growth.
           </motion.p>
 
           <motion.div
@@ -51,11 +52,11 @@ export function Hero() {
             className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center lg:justify-start"
           >
             <a href="#pricing" className="btn-primary">
-              Get Started For Free
+              Join the Platform
               <ArrowRight size={18} />
             </a>
-            <a href="#tools" className="btn-secondary">
-              Explore Tools
+            <a href="#ai-systems" className="btn-secondary">
+              Explore AI Tools
             </a>
           </motion.div>
 
@@ -65,7 +66,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.36 }}
             className="mt-7 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-[var(--text-muted)] lg:justify-start"
           >
-            {['No credit card', 'Free forever plan', 'Cancel anytime'].map((item) => (
+            {['No coding required', 'Plug-and-play systems', 'Affordable access'].map((item) => (
               <li key={item} className="inline-flex items-center gap-1.5">
                 <CheckCircle2 size={16} className="text-brand-600" />
                 {item}

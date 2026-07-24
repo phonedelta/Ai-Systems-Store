@@ -69,8 +69,8 @@ export function Footer() {
           <div>
             <Logo className="h-9" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-[var(--text-muted)]">
-              Ready-to-use AI tools, complete business systems, and resources designed to accelerate
-              your growth.
+              Access ready-to-use AI tools, complete business systems, and high-value resources
+              designed to accelerate your growth.
             </p>
             <div className="mt-5 flex gap-3">
               {socials.map((social) => (

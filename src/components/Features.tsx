@@ -1,28 +1,28 @@
 import { FadeIn } from './FadeIn'
-import { Lock, Sparkles, LayoutGrid, Zap } from 'lucide-react'
+import { BarChart3, FileText, Megaphone, Zap } from 'lucide-react'
 import { asset } from '../utils/asset'
 import { ImageFrame } from './ImageFrame'
 
 const features = [
   {
     icon: Zap,
-    title: 'Powerful AI Tools',
-    desc: 'Generate text, images, videos, and automate key tasks instantly — ready to use out of the box.',
+    title: 'AI Tools Ready to Use',
+    desc: 'Generate text, images, videos, and automate tasks instantly.',
   },
   {
-    icon: LayoutGrid,
-    title: 'Organized Workspace',
-    desc: 'One clean dashboard for every tool, system, and template your team needs to move faster.',
+    icon: Megaphone,
+    title: 'Build Marketing Assets',
+    desc: 'Create offers, landing pages, and presentations in minutes.',
   },
   {
-    icon: Lock,
-    title: 'Secure & Private',
-    desc: 'Built with privacy-first workflows so your business data stays protected while you scale.',
+    icon: FileText,
+    title: 'Create Content with AI',
+    desc: 'Produce copy, visuals, and media with powerful AI tools.',
   },
   {
-    icon: Sparkles,
-    title: 'Real Business Results',
-    desc: 'Not just ideas — structured systems and automations designed to solve real business problems.',
+    icon: BarChart3,
+    title: 'Analyze & Optimize',
+    desc: 'Analyze websites, generate reports, and improve performance.',
   },
 ]
 
@@ -31,14 +31,18 @@ export function Features() {
     <section id="features" className="section">
       <div className="container">
         <FadeIn className="mx-auto mb-8 max-w-2xl text-center">
-          <p className="mb-3 text-sm font-semibold text-brand-600">Features</p>
+          <p className="mb-3 text-sm font-semibold tracking-wide text-brand-600 uppercase">
+            Powerful AI tools. Real business results.
+          </p>
           <h2 className="font-display text-2xl font-bold tracking-tight text-[var(--text)] sm:text-3xl md:text-4xl">
-            Everything you need to work{' '}
-            <span className="text-brand-600">smarter</span> with AI
+            Everything you need to grow{' '}
+            <span className="text-brand-600">faster and smarter</span>
           </h2>
           <p className="mt-4 text-sm text-[var(--text-muted)] sm:text-base">
-            AI Systems Store is not just another AI platform. We provide ready-to-use tools and
-            frameworks designed for growth.
+            AI Systems Store is not just another AI platform. We provide ready-to-use tools,
+            structured systems, and automation frameworks designed to solve real business problems —
+            not just generate ideas. Everything is built to help you move faster, work smarter, and
+            scale without complexity.
           </p>
         </FadeIn>
 

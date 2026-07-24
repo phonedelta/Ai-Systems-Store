@@ -7,22 +7,22 @@ const values = [
   {
     icon: Compass,
     title: 'Simplicity',
-    desc: 'We make AI and automation simple, clear, and easy to adopt — without technical barriers.',
+    desc: 'We make AI and automation simple, clear, and easy to adopt — without complexity or technical barriers.',
   },
   {
     icon: Lightbulb,
     title: 'Innovation',
-    desc: 'We identify real business pain points and design AI-driven solutions aligned with growth.',
+    desc: 'We identify real business pain points and design AI-driven solutions aligned with your growth objectives.',
   },
   {
     icon: Target,
     title: 'Excellence',
-    desc: 'Practical, results-driven AI that helps you maximize the value of your technology investments.',
+    desc: 'We help businesses maximize the value of their technology investments through practical, results-driven AI.',
   },
   {
     icon: TrendingUp,
     title: 'Real Impact',
-    desc: 'Measurable outcomes by understanding your workflows, challenges, and business needs.',
+    desc: 'We deliver measurable outcomes by understanding your workflows, challenges, and real-world business needs.',
   },
 ]
 
@@ -41,9 +41,9 @@ export function About() {
 
         <div className="order-1 lg:order-2">
           <FadeIn>
-            <p className="mb-3 text-sm font-semibold text-brand-600">About us</p>
+            <p className="mb-3 text-sm font-semibold text-brand-600">About Us</p>
             <h2 className="font-display text-2xl font-bold tracking-tight text-[var(--text)] sm:text-3xl md:text-4xl">
-              Making AI accessible, practical, and profitable
+              Making AI accessible, practical, and profitable.
             </h2>
             <p className="mt-4 text-sm text-[var(--text-muted)] sm:text-base">
               AI Systems Store empowers entrepreneurs, creators, and businesses with simple,
