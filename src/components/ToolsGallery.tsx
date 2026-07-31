@@ -98,7 +98,10 @@ export function ToolsGallery() {
         </div>
 
         <FadeIn className="mt-10 flex justify-center">
-          <a href="#pricing" className="btn-primary">
+          <a
+            href="https://account.ai-systems-store.com/login"
+            className="btn-primary"
+          >
             Request a Demo
             <ArrowRight size={18} />
           </a>
