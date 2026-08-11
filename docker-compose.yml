@@ -34,7 +34,7 @@ services:
   web:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.web
       args:
         VITE_BASE_PATH: /
         # Empty = browser calls same origin /api (proxied by nginx)

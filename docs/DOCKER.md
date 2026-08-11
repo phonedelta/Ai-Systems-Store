@@ -35,3 +35,20 @@ docker compose up --build -d
 ```
 
 Blog posts are stored in the Docker volume `blog_data`.
+
+## Railway
+
+Railway uses the root `Dockerfile` (API + Nginx in one service).
+
+Set these variables in Railway:
+
+```env
+BLOG_API_SECRET=your-long-secret
+SITE_URL=https://your-app.up.railway.app
+```
+
+`PORT` is set automatically by Railway.
+
+n8n URL after deploy:
+
+`https://your-app.up.railway.app/api/blog`
