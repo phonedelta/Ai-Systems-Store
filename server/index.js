@@ -17,6 +17,9 @@ const serveFrontend =
 
 const app = express()
 
+// Behind Railway / reverse proxies (correct https + host for image URLs)
+app.set('trust proxy', 1)
+
 ensureDb()
 
 app.use(
@@ -26,7 +29,8 @@ app.use(
     allowedHeaders: ['Content-Type', 'Authorization'],
   }),
 )
-app.use(express.json({ limit: '2mb' }))
+// Base64 cover images from n8n / OpenRouter can be large
+app.use(express.json({ limit: '20mb' }))
 
 app.get('/api/health', (_req, res) => {
   res.json({ success: true, status: 'ok' })
@@ -85,7 +89,19 @@ if (serveFrontend) {
 
 app.use((err, _req, res, _next) => {
   console.error(err)
-  res.status(500).json({ success: false, error: 'Internal server error' })
+  if (err?.type === 'entity.too.large') {
+    return res.status(413).json({
+      success: false,
+      error: 'Request body too large (max 20mb)',
+    })
+  }
+  const message =
+    process.env.NODE_ENV === 'production'
+      ? 'Internal server error'
+      : err instanceof Error
+        ? err.message
+        : 'Internal server error'
+  res.status(err.status || err.statusCode || 500).json({ success: false, error: message })
 })
 
 app.listen(PORT, HOST, () => {

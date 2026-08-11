@@ -23,6 +23,38 @@ For production frontend (GitHub Pages), set `VITE_BLOG_API_URL` to your deployed
 - Header: `Authorization` = `Bearer YOUR_BLOG_API_SECRET`
 - Header: `Content-Type` = `application/json`
 
+### Upload cover image (Base64 from OpenRouter)
+
+- Method: `POST`
+- URL: `https://YOUR-RAILWAY-HOST/api/blog/upload-image`
+- Header: `Authorization` = `Bearer YOUR_BLOG_API_SECRET`
+- Body:
+
+```json
+{
+  "image": "BASE64_WITHOUT_DATA_PREFIX",
+  "slug": "article-slug"
+}
+```
+
+Success:
+
+```json
+{
+  "success": true,
+  "filename": "article-slug-1786461234567.png",
+  "url": "https://YOUR-RAILWAY-HOST/api/blog/image/article-slug-1786461234567.png"
+}
+```
+
+Use `url` as `coverImage` when publishing the article.
+
+Public image URL (no auth):
+
+`GET /api/blog/image/:filename`
+
+Images are stored on the Railway volume under `/data/blog-images`.
+
 ### Example body
 
 ```json
