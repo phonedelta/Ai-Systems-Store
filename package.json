@@ -12,10 +12,7 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "predeploy": "npm run build && node scripts/spa-404.mjs",
-    "deploy": "gh-pages -d dist",
-    "docker:up": "docker compose up --build -d",
-    "docker:down": "docker compose down",
-    "docker:logs": "docker compose logs -f"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "cors": "^2.8.6",
