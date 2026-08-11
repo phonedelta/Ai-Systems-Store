@@ -1,5 +1,5 @@
-# All-in-one image for Railway: Blog API + Nginx (frontend)
-# Fixes: nginx "host not found in upstream api" on single-service deploys
+# Railway / production all-in-one: Node serves API + built frontend
+# Listens on 0.0.0.0:$PORT (required by Railway)
 
 FROM node:22-alpine AS build
 WORKDIR /app
@@ -23,24 +23,21 @@ RUN npm run build
 FROM node:22-alpine AS runtime
 WORKDIR /app
 
-RUN apk add --no-cache nginx gettext wget \
-  && mkdir -p /run/nginx /var/log/nginx /usr/share/nginx/html /etc/nginx/templates /app/data
-
 COPY package.json package-lock.json ./
 RUN npm ci --omit=dev
 
 COPY server ./server
 COPY data ./data-seed
-COPY docker/nginx.conf.template /etc/nginx/templates/default.conf.template
 COPY docker/railway-entrypoint.sh /railway-entrypoint.sh
-COPY --from=build /app/dist /usr/share/nginx/html
+COPY --from=build /app/dist ./dist
 
-RUN sed -i 's/\r$//' /railway-entrypoint.sh && chmod +x /railway-entrypoint.sh
+RUN sed -i 's/\r$//' /railway-entrypoint.sh && chmod +x /railway-entrypoint.sh \
+  && mkdir -p /app/data
 
 ENV NODE_ENV=production
-ENV BLOG_API_PORT=3005
-ENV API_UPSTREAM=127.0.0.1:3005
-ENV PORT=80
+ENV SERVE_FRONTEND=true
+ENV HOST=0.0.0.0
+ENV PORT=8080
 
-EXPOSE 80
+EXPOSE 8080
 ENTRYPOINT ["/railway-entrypoint.sh"]

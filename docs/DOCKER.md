@@ -38,7 +38,7 @@ Blog posts are stored in the Docker volume `blog_data`.
 
 ## Railway
 
-Railway uses the root `Dockerfile` (API + Nginx in one service).
+Railway uses the root `Dockerfile` (Node serves API + frontend).
 
 Set these variables in Railway:
 
@@ -47,7 +47,7 @@ BLOG_API_SECRET=your-long-secret
 SITE_URL=https://your-app.up.railway.app
 ```
 
-`PORT` is set automatically by Railway.
+`PORT` is set automatically by Railway. The app listens on `0.0.0.0:$PORT`.
 
 n8n URL after deploy:
 
