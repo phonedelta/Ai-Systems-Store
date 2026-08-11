@@ -3,10 +3,15 @@ import { Router } from 'express'
 import { existsSync, writeFileSync } from 'node:fs'
 import { basename, join } from 'node:path'
 import { requireBlogSecret } from '../middleware/auth.js'
-import { getBlogImagesDir, sanitizeSlugForFilename } from '../storage.js'
+import {
+  getBlogImagesDir,
+  sanitizeSlugForFilename,
+  tryDeleteLocalCoverImage,
+} from '../storage.js'
 import {
   createPost,
   deletePost,
+  deletePostBySlug,
   getPostById,
   getPostBySlug,
   getRelatedPosts,
@@ -256,11 +261,36 @@ blogRouter.put('/:id', requireBlogSecret, (req, res) => {
   }
 })
 
-/** Delete by id */
-blogRouter.delete('/:id', requireBlogSecret, (req, res) => {
-  const ok = deletePost(req.params.id)
-  if (!ok) {
-    return res.status(404).json({ success: false, error: 'Post not found' })
+/**
+ * Delete article by slug (also accepts id for backward compatibility).
+ * Removes local cover image under blog-images when applicable.
+ * DELETE /api/blog/:slug
+ */
+blogRouter.delete('/:slug', requireBlogSecret, (req, res) => {
+  try {
+    const param = req.params.slug
+
+    let removed = deletePostBySlug(param)
+
+    // Backward compatible: allow delete by id if slug not found
+    if (!removed) {
+      const byId = getPostById(param)
+      if (byId) {
+        tryDeleteLocalCoverImage(byId.coverImage)
+        deletePost(byId.id)
+        return res.json({ success: true, message: 'Article deleted' })
+      }
+      return res.status(404).json({ success: false, error: 'Article not found' })
+    }
+
+    tryDeleteLocalCoverImage(removed.coverImage)
+
+    return res.json({ success: true, message: 'Article deleted' })
+  } catch (error) {
+    console.error('ARTICLE DELETE ERROR:', error)
+    return res.status(500).json({
+      success: false,
+      error: error instanceof Error ? error.message : 'Failed to delete article',
+    })
   }
-  return res.json({ success: true })
 })

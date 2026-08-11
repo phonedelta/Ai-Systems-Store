@@ -199,6 +199,16 @@ export function deletePost(id) {
   return true
 }
 
+/** Delete by slug (draft or published). Returns removed post or null. */
+export function deletePostBySlug(slug) {
+  const db = readDb()
+  const index = db.posts.findIndex((p) => p.slug === slug)
+  if (index === -1) return null
+  const [removed] = db.posts.splice(index, 1)
+  writeDb(db)
+  return toPublicPost(removed)
+}
+
 export function getRelatedPosts(slug, limit = 3) {
   const current = getPostBySlug(slug)
   if (!current) return []

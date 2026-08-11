@@ -55,6 +55,24 @@ Public image URL (no auth):
 
 Images are stored on the Railway volume under `/data/blog-images`.
 
+### Delete article by slug
+
+- Method: `DELETE`
+- URL: `https://YOUR-RAILWAY-HOST/api/blog/your-article-slug`
+- Header: `Authorization` = `Bearer YOUR_BLOG_API_SECRET`
+
+Success:
+
+```json
+{
+  "success": true,
+  "message": "Article deleted"
+}
+```
+
+Local cover images (`/api/blog/image/...`) are removed from `/data/blog-images`.
+External images (Unsplash, etc.) are left untouched.
+
 ### Example body
 
 ```json
