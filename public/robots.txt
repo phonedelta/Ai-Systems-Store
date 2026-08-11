@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://phonedelta.github.io/Ai-Systems-Store/sitemap.xml

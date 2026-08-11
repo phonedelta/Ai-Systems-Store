@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { Logo } from './Logo'
 
 const socials = [
@@ -31,30 +32,32 @@ const socials = [
   },
 ]
 
+const base = import.meta.env.BASE_URL
+
 const columns = [
   {
     title: 'Product',
     links: [
-      { label: 'Features', href: '#features' },
-      { label: 'Tools', href: '#tools' },
-      { label: 'Pricing', href: '#pricing' },
-      { label: 'FAQ', href: '#faq' },
+      { label: 'Features', href: `${base}#features` },
+      { label: 'Tools', href: `${base}#tools` },
+      { label: 'Pricing', href: `${base}#pricing` },
+      { label: 'FAQ', href: `${base}#faq` },
     ],
   },
   {
     title: 'Resources',
     links: [
+      { label: 'Blog', href: '/blog', isRoute: true },
       { label: 'Documentation', href: '#' },
       { label: 'Guides', href: '#' },
-      { label: 'Blog', href: '#' },
       { label: 'Help Center', href: '#' },
     ],
   },
   {
     title: 'Company',
     links: [
-      { label: 'About Us', href: '#about' },
-      { label: 'Contact', href: '#contact' },
+      { label: 'About Us', href: `${base}#about` },
+      { label: 'Contact', href: `${base}#contact` },
       { label: 'Privacy Policy', href: '#' },
       { label: 'Terms', href: '#' },
     ],
@@ -95,12 +98,21 @@ export function Footer() {
                 <ul className="space-y-2">
                   {col.links.map((link) => (
                     <li key={link.label}>
-                      <a
-                        href={link.href}
-                        className="text-sm text-[var(--text-muted)] transition hover:text-brand-600"
-                      >
-                        {link.label}
-                      </a>
+                      {'isRoute' in link && link.isRoute ? (
+                        <Link
+                          to={link.href}
+                          className="text-sm text-[var(--text-muted)] transition hover:text-brand-600"
+                        >
+                          {link.label}
+                        </Link>
+                      ) : (
+                        <a
+                          href={link.href}
+                          className="text-sm text-[var(--text-muted)] transition hover:text-brand-600"
+                        >
+                          {link.label}
+                        </a>
+                      )}
                     </li>
                   ))}
                 </ul>

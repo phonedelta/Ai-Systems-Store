@@ -1,23 +1,26 @@
 import { Menu, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { Logo } from './Logo'
 
-const links = [
-  { href: '#home', label: 'Home' },
-  { href: '#features', label: 'Features' },
-  { href: '#tools', label: 'Tools' },
-  { href: '#about', label: 'About' },
-  { href: '#pricing', label: 'Pricing' },
-  { href: '#faq', label: 'FAQ' },
-  { href: '#contact', label: 'Contact' },
-]
+const base = import.meta.env.BASE_URL
 
-const sectionIds = links.map((l) => l.href.slice(1))
+const sectionLinks = [
+  { href: `${base}#home`, hash: 'home', label: 'Home' },
+  { href: `${base}#features`, hash: 'features', label: 'Features' },
+  { href: `${base}#tools`, hash: 'tools', label: 'Tools' },
+  { href: `${base}#about`, hash: 'about', label: 'About' },
+  { href: `${base}#pricing`, hash: 'pricing', label: 'Pricing' },
+  { href: `${base}#faq`, hash: 'faq', label: 'FAQ' },
+  { href: `${base}#contact`, hash: 'contact', label: 'Contact' },
+]
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [active, setActive] = useState('home')
+  const location = useLocation()
+  const isHome = location.pathname === '/'
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -27,8 +30,10 @@ export function Navbar() {
   }, [])
 
   useEffect(() => {
-    const elements = sectionIds
-      .map((id) => document.getElementById(id))
+    if (!isHome) return
+
+    const elements = sectionLinks
+      .map((l) => document.getElementById(l.hash))
       .filter((el): el is HTMLElement => Boolean(el))
 
     if (!elements.length) return
@@ -45,7 +50,6 @@ export function Navbar() {
       },
       {
         root: null,
-        // Account for fixed navbar + pick section near top of viewport
         rootMargin: '-20% 0px -55% 0px',
         threshold: [0, 0.1, 0.25, 0.5, 1],
       },
@@ -53,11 +57,25 @@ export function Navbar() {
 
     elements.forEach((el) => observer.observe(el))
     return () => observer.disconnect()
-  }, [])
+  }, [isHome])
 
-  const linkClass = (href: string, mobile = false) => {
-    const id = href.slice(1)
-    const isActive = active === id
+  const sectionLinkClass = (hash: string, mobile = false) => {
+    const isActive = isHome && active === hash
+    if (mobile) {
+      return `rounded-xl px-3 py-2 text-sm font-medium transition-all duration-300 ease-out ${
+        isActive
+          ? 'bg-brand-50 text-brand-700'
+          : 'bg-transparent text-[var(--text)] hover:bg-[var(--bg-soft)]'
+      }`
+    }
+    return `relative text-sm font-medium transition-colors duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:rounded-full after:bg-brand-600 after:transition-transform after:duration-300 after:ease-out ${
+      isActive
+        ? 'text-brand-600 after:scale-x-100'
+        : 'text-[var(--text-muted)] after:scale-x-0 hover:text-brand-600 hover:after:scale-x-100'
+    }`
+  }
+
+  const blogLinkClass = (isActive: boolean, mobile = false) => {
     if (mobile) {
       return `rounded-xl px-3 py-2 text-sm font-medium transition-all duration-300 ease-out ${
         isActive
@@ -79,16 +97,19 @@ export function Navbar() {
       }`}
     >
       <div className="container flex h-[4.25rem] items-center justify-between gap-4">
-        <a href="#home" className="flex min-w-0 shrink-0 items-center">
+        <Link to="/" className="flex min-w-0 shrink-0 items-center">
           <Logo className="h-7 sm:h-8 md:h-9" />
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-5 xl:gap-8 lg:flex">
-          {links.map((link) => (
-            <a key={link.href} href={link.href} className={linkClass(link.href)}>
+          {sectionLinks.map((link) => (
+            <a key={link.hash} href={link.href} className={sectionLinkClass(link.hash)}>
               {link.label}
             </a>
           ))}
+          <NavLink to="/blog" className={({ isActive }) => blogLinkClass(isActive)}>
+            Blog
+          </NavLink>
         </nav>
 
         <div className="flex items-center gap-2 sm:gap-3">
@@ -98,7 +119,7 @@ export function Navbar() {
           >
             Log in
           </a>
-          <a href="#pricing" className="btn-primary hidden px-4 py-2.5 text-sm sm:inline-flex">
+          <a href={`${base}#pricing`} className="btn-primary hidden px-4 py-2.5 text-sm sm:inline-flex">
             Join the Platform
           </a>
           <button
@@ -115,16 +136,23 @@ export function Navbar() {
       {open && (
         <div className="glass border-t border-[var(--border)] lg:hidden">
           <div className="container flex flex-col gap-3 py-4">
-            {links.map((link) => (
+            {sectionLinks.map((link) => (
               <a
-                key={link.href}
+                key={link.hash}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className={linkClass(link.href, true)}
+                className={sectionLinkClass(link.hash, true)}
               >
                 {link.label}
               </a>
             ))}
+            <NavLink
+              to="/blog"
+              onClick={() => setOpen(false)}
+              className={({ isActive }) => blogLinkClass(isActive, true)}
+            >
+              Blog
+            </NavLink>
             <a
               href="https://account.ai-systems-store.com/login"
               onClick={() => setOpen(false)}
@@ -132,7 +160,11 @@ export function Navbar() {
             >
               Log in
             </a>
-            <a href="#pricing" onClick={() => setOpen(false)} className="btn-primary mt-1 text-sm">
+            <a
+              href={`${base}#pricing`}
+              onClick={() => setOpen(false)}
+              className="btn-primary mt-1 text-sm"
+            >
               Join the Platform
             </a>
           </div>

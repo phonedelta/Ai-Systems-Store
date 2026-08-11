@@ -1,0 +1,51 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: ai-systems-api
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      BLOG_API_PORT: 3005
+      SITE_URL: ${SITE_URL:-http://localhost:8080}
+      BLOG_API_SECRET: ${BLOG_API_SECRET:?Set BLOG_API_SECRET in .env}
+    volumes:
+      - blog_data:/app/data
+    expose:
+      - "3005"
+    # Optional: expose API directly for n8n on the host
+    ports:
+      - "${BLOG_API_HOST_PORT:-3005}:3005"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://127.0.0.1:3005/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+        ]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VITE_BASE_PATH: /
+        # Empty = browser calls same origin /api (proxied by nginx)
+        VITE_BLOG_API_URL: ""
+    container_name: ai-systems-web
+    restart: unless-stopped
+    ports:
+      - "${WEB_PORT:-8080}:80"
+    depends_on:
+      api:
+        condition: service_healthy
+
+volumes:
+  blog_data:
